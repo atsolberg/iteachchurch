@@ -1,5 +1,4 @@
 import { cssBundleHref } from "@remix-run/css-bundle";
-
 import { json } from "@remix-run/node";
 import {
   Links,
@@ -9,7 +8,6 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-
 import { getUser } from "~/session.server";
 import stylesheet from "~/tailwind.css";
 

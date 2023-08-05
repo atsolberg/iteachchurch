@@ -3,10 +3,8 @@
 // npx ts-node --require tsconfig-paths/register ./cypress/support/create-user.ts username@example.com
 // and it will log out the cookie value you can use to interact with the server
 // as that new user.
-
 import { installGlobals } from "@remix-run/node";
 import { parse } from "cookie";
-
 import { createUser } from "~/models/user.server";
 import { createUserSession } from "~/session.server";
 
