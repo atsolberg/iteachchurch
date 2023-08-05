@@ -1,5 +1,4 @@
 name: 🚀 Deploy
-
 on:
   push:
     branches:
@@ -16,6 +15,26 @@ permissions:
   contents: read
 
 jobs:
+  format:
+    name: 🟣 Prettier
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          cache: npm
+          cache-dependency-path: ./package.json
+          node-version: 18
+
+      - name: 📥 Install deps
+        run: npm install
+
+      - name: 🔍 Check Format
+        run: npm run format:check
+
   lint:
     name: ⬣ ESLint
     runs-on: ubuntu-latest
