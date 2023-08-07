@@ -1,5 +1,5 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
-import { json } from "@remix-run/node";
+import { cssBundleHref } from '@remix-run/css-bundle';
+import { json } from '@remix-run/node';
 import {
   Links,
   LiveReload,
@@ -7,13 +7,16 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "@remix-run/react";
-import { getUser } from "~/session.server";
-import stylesheet from "~/tailwind.css";
+} from '@remix-run/react';
+import { getUser } from '~/session.server';
+import stylesheet from '~/tailwind.css';
+
+import PageFooter from '~/components/page-footer/PageFooter';
+import PageHeader from '~/components/page-header/PageHeader';
 
 export const links = () => [
-  { rel: "stylesheet", href: stylesheet },
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+  { rel: 'stylesheet', href: stylesheet },
+  ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
 ];
 
 export const loader = async ({ request }) => {
@@ -30,7 +33,9 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
+        <PageHeader />
         <Outlet />
+        <PageFooter />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

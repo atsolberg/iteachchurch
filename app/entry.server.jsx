@@ -4,11 +4,11 @@
  * but if you ever want it revealed again, you can run `npx remix reveal` ✨
  * For more information, see https://remix.run/docs/en/main/file-conventions/entry.server
  */
-import { Response } from "@remix-run/node";
-import { RemixServer } from "@remix-run/react";
-import isbot from "isbot";
-import { PassThrough } from "node:stream";
-import { renderToPipeableStream } from "react-dom/server";
+import { Response } from '@remix-run/node';
+import { RemixServer } from '@remix-run/react';
+import isbot from 'isbot';
+import { PassThrough } from 'node:stream';
+import { renderToPipeableStream } from 'react-dom/server';
 
 const ABORT_DELAY = 5_000;
 
@@ -18,7 +18,7 @@ export default function handleRequest(
   responseHeaders,
   remixContext
 ) {
-  return isbot(request.headers.get("user-agent"))
+  return isbot(request.headers.get('user-agent'))
     ? handleBotRequest(
         request,
         responseStatusCode,
@@ -51,7 +51,7 @@ function handleBotRequest(
         onAllReady() {
           const body = new PassThrough();
 
-          responseHeaders.set("Content-Type", "text/html");
+          responseHeaders.set('Content-Type', 'text/html');
 
           resolve(
             new Response(body, {
@@ -94,7 +94,7 @@ function handleBrowserRequest(
         onShellReady() {
           const body = new PassThrough();
 
-          responseHeaders.set("Content-Type", "text/html");
+          responseHeaders.set('Content-Type', 'text/html');
 
           resolve(
             new Response(body, {

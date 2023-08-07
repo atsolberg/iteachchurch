@@ -1,21 +1,22 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
 export default {
-  content: ["./app/**/*.{js,jsx,ts,tsx}"],
+  content: ['./app/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        primary: "#0066cc",
+        primary: '#62cbc9',
+        secondary: '#f7931e',
       },
     },
   },
   plugins: [
-    require("@tailwindcss/typography"),
-    require("@tailwindcss/forms"),
-    require("@tailwindcss/aspect-ratio"),
-    require("tailwind-scrollbar"),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+    require('tailwind-scrollbar'),
     // Bootstrap Grid
-    require("tailwind-bootstrap-grid")({}),
+    require('tailwind-bootstrap-grid')({}),
   ],
 
   corePlugins: {
